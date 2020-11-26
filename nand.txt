@@ -1,0 +1,43 @@
+---OR: [(A NAND A) NAND (B NAND B)]---
+(NOT A) NAND (NOT B)
+A	B	A'	B'	NAND	OR
+0	0	1	1	0	=	0
+0	1	1	0	1	=	1
+1	0	0	1	1	=	1
+1	1	0	0	1	=	1
+
+---AND: [(A NAND B) NAND (A NAND B)]---
+A	B	AB	NAND	AND
+0	0	1	0	=	0
+0	1	1	0	=	0
+1	0	1	0	=	0
+1	1	0	1	=	1
+
+---NOT: [A NAND A]---
+A	NAND	NOT
+0	1	=	1
+1	0	=	0
+
+---XOR: [(A NAND (B NAND B)) NAND ((A NAND A) NAND B)]---
+(A NAND (NOT B)) NAND ((NOT A) NAND B)
+A	B	A'	B'	AB'	A'B	NAND	XOR
+0	0	1	1	1	1	0	=	0
+0	1	1	0	1	0	1	=	1
+1	0	0	1	0	1	1	=	1
+1	1	0	0	1	1	0	=	0
+
+---NOR: [((A NAND A) NAND (B NAND B)) NAND ((A NAND A) NAND (B NAND B))]---
+(A OR B) NAND (A OR B) = NOT (A OR B) = A NOR B
+A	B	A OR B		NAND	NOR
+0	0	0			1	=	1
+0	1	1			0	=	0
+1	0	1			0	=	0
+1	1	1			0	=	0
+
+---NXOR: [(A NAND B) NAND ((A NAND A) NAND (B NAND B))]---
+(A NAND B) NAND ((NOT A) NAND (NOT B))
+A	B	A'	B'	AB	A'B'		NAND		NXOR
+0	0	1	1	1	0		1	=	1
+0	1	1	0	1	1		0	=	0
+1	0	0	1	1	1		0	=	0
+1	1	0	0	0	1		1	=	1
